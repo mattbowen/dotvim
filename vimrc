@@ -1,6 +1,7 @@
 if has("gui_running")
+  set anti enc=utf-8
   set guioptions=M
-  set guifont=Envy\ Code\ R\ 9
+  set guifont=Source\ Code\ Pro\ 13
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -16,7 +17,9 @@ filetype off
 
 "
 set background=dark
+"set shell=zsh\ -i
 "color desert256bdp
+set clipboard=unnamed
 syn on comment minlines=10 maxlines=1000
 filetype plugin indent on
 set encoding=utf-8
@@ -174,6 +177,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'strange/strange.vim'
 Plugin 'wellsjo/wells-colorscheme.vim'
 Plugin 'wting/rust.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Valloric/YouCompleteMe'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -213,7 +219,8 @@ augroup END
 
 " Color scheme settings
 "colorscheme wombat256mod
-colorscheme wells-colors
+"colorscheme wells-colors
+colorscheme solarized
 highlight clear SignColumn
 
 " CtrlP Settings
@@ -277,3 +284,22 @@ let g:airline_right_alt_sep = ''
 let g:lite_dfm_left_offset = 4
 nnoremap <leader>z :LiteDFMToggle<CR>i<Esc>`^
 " }}}
+
+" basic easymotion setup until I get the hang of it
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
