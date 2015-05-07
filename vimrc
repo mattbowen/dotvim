@@ -180,6 +180,7 @@ Plugin 'wting/rust.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'luochen1990/rainbow'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -303,3 +304,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Rainbow!
+let g:rainbow_active = 1
