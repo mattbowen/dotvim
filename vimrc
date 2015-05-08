@@ -113,6 +113,7 @@ autocmd FileType javascript set sw=2 ts=2 softtabstop=2 cindent
 augroup END
 " Python {{{
 augroup Python
+set colorcolumn=121
 autocmd!
 " I normally keep tabstop and softtabstop identical, but since Python
 " sees actual tab characters as 8 always, show them as that.
@@ -157,7 +158,6 @@ Plugin 'gmarik/vundle'
 " Bundles here:
 "
 " original repos on github
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'bilalq/lite-dfm'
 Plugin 'bogado/file-line'
@@ -181,6 +181,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow'
+Plugin 'stephanedemotte/beekai'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -221,7 +222,7 @@ augroup END
 " Color scheme settings
 "colorscheme wombat256mod
 "colorscheme wells-colors
-colorscheme solarized
+colorscheme Monokai
 highlight clear SignColumn
 
 " CtrlP Settings
