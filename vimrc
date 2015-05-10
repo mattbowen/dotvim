@@ -1,7 +1,7 @@
 if has("gui_running")
   set anti enc=utf-8
   set guioptions=M
-  set guifont=Source\ Code\ Pro\ 13
+  set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -17,8 +17,6 @@ filetype off
 
 "
 set background=dark
-"set shell=zsh\ -i
-"color desert256bdp
 set clipboard=unnamed
 syn on comment minlines=10 maxlines=1000
 filetype plugin indent on
@@ -181,7 +179,8 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow'
-Plugin 'stephanedemotte/beekai'
+Plugin 'ajh17/Spacegray.vim'
+Plugin 'szw/vim-ctrlspace'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -292,8 +291,6 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-nmap s <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
@@ -306,5 +303,14 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-" Rainbow!
+" Rainbow! For easier-to-see parens
 let g:rainbow_active = 1
+
+" Powerline shell, because ZSH makes a mess for me
+let g:promptline_theme = 'airline'
+
+" CntrlSpace
+let g:airline_exclude_preview = 1
+"let g:ctrlspace_default_mapping_key=<leader> <C-t>
+
+
