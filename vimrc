@@ -18,6 +18,7 @@ filetype off
 "
 set background=dark
 set clipboard=unnamed
+set backspace=2   " Backspace deletes like most programs in insert mode
 syn on comment minlines=10 maxlines=1000
 filetype plugin indent on
 set encoding=utf-8
@@ -39,6 +40,8 @@ set noerrorbells
 set ruler
 set laststatus=2
 set number
+set autowrite     " Automatically :write before running commands
+set complete+=kspell
 " Keyboard timeout quicker to show mode line changes
 set ttimeoutlen=100
 
@@ -62,6 +65,20 @@ if exists("+undofile")
 endif
 
 let mapleader = ","
+
+" Let me make empty directories when I save
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 
 set list
 " how i want to display tabs and trailing whitespace
@@ -135,7 +152,7 @@ au Filetype rst,markdown,python nnoremap <buffer> <localleader>% yypVr^yykPjj:re
 au Filetype rst,markdown,python nnoremap <buffer> <localleader>5 yypVr^:redraw<cr>
 au Filetype rst,markdown,python nnoremap <buffer> <localleader>^ yypVr"yykPjj:redraw<cr>
 au Filetype rst,markdown,python nnoremap <buffer> <localleader>6 yypVr":redraw<cr>
-
+autocmd BufRead,BufNewFile *.rst setlocal spell
 augroup ft_rest
     au!
 
@@ -214,6 +231,7 @@ augroup END
 augroup Markdown
   autocmd!
   autocmd BufNewFile,BufRead *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.md setlocal spell
   au FileType rst set sw=4 ts=4 softtabstop=4
 augroup END
 " }}}
@@ -221,7 +239,7 @@ augroup END
 " Color scheme settings
 "colorscheme wombat256mod
 "colorscheme wells-colors
-colorscheme Monokai
+colorscheme Spacegray
 highlight clear SignColumn
 
 " CtrlP Settings
@@ -312,5 +330,4 @@ let g:promptline_theme = 'airline'
 " CntrlSpace
 let g:airline_exclude_preview = 1
 "let g:ctrlspace_default_mapping_key=<leader> <C-t>
-
 
