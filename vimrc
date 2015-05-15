@@ -198,6 +198,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'szw/vim-ctrlspace'
+Plugin 'mtth/scratch.vim'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -331,3 +332,6 @@ let g:promptline_theme = 'airline'
 let g:airline_exclude_preview = 1
 "let g:ctrlspace_default_mapping_key=<leader> <C-t>
 
+" Python-mode
+" Disable rope completion to keep Jedi
+let ropevim_vim_completion=0
