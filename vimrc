@@ -1,7 +1,11 @@
 if has("gui_running")
   set anti enc=utf-8
   set guioptions=M
-  set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+endif
+
+if has("gui_macvim") || has("gui_vimr")
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -204,6 +208,7 @@ Plugin 'mtth/scratch.vim'
 Plugin 'matchit.zip'
 Plugin 'python_match.vim'
 Plugin 'psql.vim'
+Plugin 'csv.vim'
 
 " non github repos
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -293,12 +298,13 @@ highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 " Turn on the buffer/tab list
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':~:.'
+let g:airline_powerline_fonts = 1
 " Disable seperator pieces
-let g:airline_symbols = {}
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+"let g:airline_symbols = {}
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
 
 " lite-dfm options {{{
 let g:lite_dfm_left_offset = 4
@@ -330,8 +336,9 @@ let g:promptline_theme = 'airline'
 
 " CntrlSpace
 let g:airline_exclude_preview = 1
+let g:ctrlspace_project_root_markers=['.ctrlp', '.git']
 "let g:ctrlspace_default_mapping_key=<leader> <C-t>
 
 " Python-mode
 " Disable rope completion to keep Jedi
-let ropevim_vim_completion=0
+let g:ropevim_vim_completion=0
