@@ -203,6 +203,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'szw/vim-ctrlspace'
 Plugin 'mtth/scratch.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
