@@ -204,7 +204,11 @@ Plugin 'ajh17/Spacegray.vim'
 Plugin 'szw/vim-ctrlspace'
 Plugin 'mtth/scratch.vim'
 Plugin 'terryma/vim-multiple-cursors'
-
+Plugin 'vim-scripts/Conque-Shell'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mileszs/ack.vim'
+ 
 " vim-scripts repos
 Plugin 'matchit.zip'
 Plugin 'python_match.vim'
@@ -295,6 +299,9 @@ highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
+" Other signify settings to make it feel more responsive
+let g:signify_update_on_focusgained=1
+ 
 " vim-airline configuration
 " Turn on the buffer/tab list
 let g:airline#extensions#tabline#enabled = 1
@@ -343,3 +350,6 @@ let g:ctrlspace_project_root_markers=['.ctrlp', '.git']
 " Python-mode
 " Disable rope completion to keep Jedi
 let g:ropevim_vim_completion=0
+
+" Ack/ag settings
+let g:ackprg = 'ag --vimgrep'
