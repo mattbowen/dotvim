@@ -1,11 +1,11 @@
 if has("gui_running")
   set anti enc=utf-8
   set guioptions=M
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 endif
 
 if has("gui_macvim") || has("gui_vimr")
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 endif
 
 if $COLORTERM == 'gnome-terminal'
@@ -214,6 +214,8 @@ Plugin 'matchit.zip'
 Plugin 'python_match.vim'
 Plugin 'psql.vim'
 Plugin 'csv.vim'
+Plugin 'jinja.vim'
+Plugin 'htmljinja.vim'
 
 " non github repos
 "Plugin 'git://git.wincent.com/command-t.git'
