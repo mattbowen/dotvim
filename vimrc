@@ -208,14 +208,17 @@ Plugin 'vim-scripts/Conque-Shell'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
- 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'junegunn/goyo.vim'
+" Plugin 'amix/vim-zenroom2'
+Plugin 'lepture/vim-jinja'
+
 " vim-scripts repos
 Plugin 'matchit.zip'
 Plugin 'python_match.vim'
 Plugin 'psql.vim'
 Plugin 'csv.vim'
-Plugin 'jinja.vim'
-Plugin 'htmljinja.vim'
 
 " non github repos
 "Plugin 'git://git.wincent.com/command-t.git'
