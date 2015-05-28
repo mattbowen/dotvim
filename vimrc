@@ -204,16 +204,17 @@ Plugin 'ajh17/Spacegray.vim'
 Plugin 'szw/vim-ctrlspace'
 Plugin 'mtth/scratch.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-scripts/Conque-Shell'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
 Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
+Plugin 'alfredodeza/pytest.vim'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'junegunn/goyo.vim'
-" Plugin 'amix/vim-zenroom2'
 Plugin 'lepture/vim-jinja'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'SirVer/ultisnips'
+Plugin 'vim-scripts/Conque-Shell'
 
 " vim-scripts repos
 Plugin 'matchit.zip'
@@ -251,6 +252,7 @@ augroup Markdown
   autocmd BufRead,BufNewFile *.md setlocal spell
   au FileType rst set sw=4 ts=4 softtabstop=4
 augroup END
+let g:markdown_enable_mappings = 1
 " }}}
 
 " Color scheme settings
@@ -261,8 +263,10 @@ highlight clear SignColumn
 
 " CtrlP Settings
 let g:ctrlp_cmd='CtrlPMixed'  " Search everything by default
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp'] " Enable .ctrlp to mark top for ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+nnoremap <leader>. :CtrlPTag<cr>
 
 " netrw config
 " I had some deleted config from, instead I'm using vim-vinegar now.
@@ -359,3 +363,10 @@ let g:ropevim_vim_completion=0
 
 " Ack/ag settings
 let g:ackprg = 'ag --vimgrep'
+
+" Pytest integration
+nmap <silent><Leader>f <Esc>:Pytest file<CR>
+nmap <silent><Leader>c <Esc>:Pytest class<CR>
+nmap <silent><Leader>m <Esc>:Pytest method<CR>
+nmap <silent><Leader>p <Esc>:Pytest project<CR>
+
