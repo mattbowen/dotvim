@@ -46,8 +46,19 @@ set laststatus=2
 set number
 set autowrite     " Automatically :write before running commands
 set complete+=kspell
+
 " Keyboard timeout quicker to show mode line changes
 set ttimeoutlen=100
+
+" mouse(!) options
+if has('mouse')
+  set mouse=a
+  if exists('$ITERM_PROFILE')
+    autocmd VimEnter * set ttymouse=xterm2
+    autocmd FocusGained * set ttymouse=xterm2
+    autocmd BufEnter * set ttymouse=xterm2
+  endif
+endif
 
 " Printer options
 set pdev=pdf
