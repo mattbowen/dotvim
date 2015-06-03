@@ -139,6 +139,8 @@ autocmd FileType perl set cindent sw=4 ts=4 softtabstop=4
 autocmd FileType plsql set sw=2 ai cindent
 autocmd FileType xml set sw=2 ts=2 softtabstop=2
 autocmd FileType html set sw=2 ts=2 softtabstop=2
+autocmd FileType css set sw=2 ts=2 softtabstop=2
+autocmd FileType scss set sw=2 ts=2 softtabstop=2
 autocmd FileType javascript set sw=2 ts=2 softtabstop=2 cindent
 augroup END
 " Python {{{
