@@ -271,7 +271,7 @@ let g:markdown_enable_mappings = 1
 " Color scheme settings
 "colorscheme wombat256mod
 "colorscheme wells-colors
-colorscheme Spacegray
+colorscheme spacegray
 highlight clear SignColumn
 
 " CtrlP Settings
