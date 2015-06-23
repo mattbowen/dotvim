@@ -46,6 +46,7 @@ set laststatus=2
 set number
 set autowrite     " Automatically :write before running commands
 set autoread
+set syntax=on
 set complete+=kspell
 
 " Keyboard timeout quicker to show mode line changes
