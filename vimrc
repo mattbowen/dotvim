@@ -45,6 +45,7 @@ set ruler
 set laststatus=2
 set number
 set autowrite     " Automatically :write before running commands
+set autoread
 set complete+=kspell
 
 " Keyboard timeout quicker to show mode line changes
@@ -135,13 +136,14 @@ augroup END
 augroup Indents
 autocmd!
 autocmd FileType php set cindent sw=2 ts=2 softtabstop=2
+autocmd FileType yaml set cindent sw=2 ts=2 softtabstop=2
 autocmd FileType perl set cindent sw=4 ts=4 softtabstop=4
 autocmd FileType plsql set sw=2 ai cindent
 autocmd FileType xml set sw=2 ts=2 softtabstop=2
 autocmd FileType html set sw=2 ts=2 softtabstop=2
 autocmd FileType css set sw=2 ts=2 softtabstop=2
 autocmd FileType scss set sw=2 ts=2 softtabstop=2
-autocmd FileType javascript set sw=2 ts=2 softtabstop=2 cindent
+autocmd FileType javascript set sw=4 ts=4 softtabstop=4 cindent
 augroup END
 " Python {{{
 augroup Python
@@ -228,12 +230,17 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'SirVer/ultisnips'
 Plugin 'vim-scripts/Conque-Shell'
-
+Plugin 'marijnh/tern_for_vim'
+Plugin 'maksimr/vim-karma'
+Plugin 'honza/vim-snippets'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
 " vim-scripts repos
 Plugin 'matchit.zip'
 Plugin 'python_match.vim'
 Plugin 'psql.vim'
 Plugin 'csv.vim'
+Plugin 'chase/vim-ansible-yaml'
 
 " non github repos
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -359,6 +366,10 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+" More Easy-motion
+map <Leader><Leader>w <Plug>(easymotion-w)
+map <Leader><Leader>f <Plug>(easymotion-f)
+
 " Rainbow! For easier-to-see parens
 let g:rainbow_active = 1
 
@@ -383,3 +394,31 @@ nmap <silent><Leader>c <Esc>:Pytest class<CR>
 nmap <silent><Leader>m <Esc>:Pytest method<CR>
 nmap <silent><Leader>p <Esc>:Pytest project<CR>
 
+" Vim Karma Integration
+nmap <Leader>t :call RunCurrentSpecFile()<CR>
+nmap <Leader>s :call RunNearestSpec()<CR>
+nmap <Leader>a :call RunAllSpecs()<CR>
+
+" UltiSnip and YCM fix from http://stackoverflow.com/a/18685821
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item 
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
