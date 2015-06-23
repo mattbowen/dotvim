@@ -1,0 +1,7 @@
+bundle/
+undo/
+spell/
+*.swp
+*.swo
+*~
+.netrwhist
