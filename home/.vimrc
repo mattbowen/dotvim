@@ -46,7 +46,7 @@ set laststatus=2
 set number
 set autowrite     " Automatically :write before running commands
 set autoread
-set syntax=on
+syntax on
 set complete+=kspell
 
 " Keyboard timeout quicker to show mode line changes
@@ -145,6 +145,8 @@ autocmd FileType html set sw=2 ts=2 softtabstop=2
 autocmd FileType css set sw=2 ts=2 softtabstop=2
 autocmd FileType scss set sw=2 ts=2 softtabstop=2
 autocmd FileType javascript set sw=4 ts=4 softtabstop=4 cindent
+autocmd FileType sh set sw=4 ts=4 softtabstop=4
+
 augroup END
 " Python {{{
 augroup Python
