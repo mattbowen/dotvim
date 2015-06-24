@@ -146,7 +146,7 @@ autocmd FileType css set sw=2 ts=2 softtabstop=2
 autocmd FileType scss set sw=2 ts=2 softtabstop=2
 autocmd FileType javascript set sw=4 ts=4 softtabstop=4 cindent
 autocmd FileType sh set sw=4 ts=4 softtabstop=4
-
+autocmd FileType zsh set sw=4 ts=4 softtabstop=4
 augroup END
 " Python {{{
 augroup Python
